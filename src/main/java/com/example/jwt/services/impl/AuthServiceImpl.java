@@ -29,7 +29,7 @@ public class AuthServiceImpl implements AuthService {
         User user = new User();
 
         user.setUsername(signUpRequest.getUsername());
-        user.setRole(Role.USER);
+        user.setRole(signUpRequest.getRole());
         user.setPassword(passwordEncoder.encode(signUpRequest.getPassword()));
 
         return userRepository.save(user);
@@ -48,7 +48,7 @@ public class AuthServiceImpl implements AuthService {
         JwtAuthResponse jwtAuthResponse = new JwtAuthResponse();
 
         jwtAuthResponse.setToken(jwt);
-//        jwtAuthResponse.setRefreshToken (refreshToken);
+        jwtAuthResponse.setRefreshToken (refreshToken);
         return jwtAuthResponse;
     }
 
@@ -62,7 +62,7 @@ public class AuthServiceImpl implements AuthService {
             JwtAuthResponse jwtAuthResponse = new JwtAuthResponse();
 
             jwtAuthResponse.setToken(jwt);
-//            jwtAuthResponse.setRefreshToken(refreshTokenRequest.getRefreshToken());
+            jwtAuthResponse.setRefreshToken(refreshTokenRequest.getRefreshToken());
             return jwtAuthResponse;
         }
         return null;

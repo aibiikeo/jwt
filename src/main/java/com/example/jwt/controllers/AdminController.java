@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/v1/admin")
 @RequiredArgsConstructor
 public class AdminController {
-
     @GetMapping
     public ResponseEntity<String> sayHello() {
         return ResponseEntity.ok("Hi Admin");
